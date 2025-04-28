@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Save on Sale</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Great+Vibes&display=swap&subset=latin-ext"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+    media="screen">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+  <style>
+    /* General body styling */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      /* Remove default background color */
+      /* background-color: #f8f8f8; */
+
+      /* ADDED/MODIFIED: Full background image properties */
+      background-image: url('sa.jpg');
+      /* Use the uploaded image */
+      background-size: cover;
+      /* Make the image cover the entire viewport */
+      background-repeat: no-repeat;
+      /* Prevent the image from repeating */
+      background-attachment: fixed;
+      /* Fix the background image so it doesn't scroll */
+      background-position: center center;
+      /* Center the background image */
+    }
+
+    /* Container padding */
+    .container {
+      padding: 0 15px;
+    }
+
+    /* Header top menu styling */
+    .header_section_top {
+      background-color: #1a1a1a;
+      padding: 10px 0;
+    }
+
+    .custom_menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+    }
+
+    .custom_menu ul li {
+      display: inline;
+      margin: 0 15px;
+    }
+
+    .custom_menu ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    .custom_menu ul li a:hover {
+      color: #f26522;
+    }
+
+    /* Logo section styling */
+    .logo_section {
+      text-align: center;
+      padding: 20px 0;
+      background-color: #CEDF4E;
+      /* Yahan aapne jo bhi background color set kiya hai */
+      position: relative;
+      z-index: 2;
+
+      /* Is line ko add ya modify karein: */
+      height: 100px;
+      /* Ya jo bhi height aap chahte hain */
+
+      /* In lines ko add ya modify karein: */
+      display: flex;
+      /* Flexbox use karenge */
+      align-items: center;
+      /* Vertically center image */
+      justify-content: center;
+      /* Horizontally center image */
+    }
+
+    .logo img {
+      width: 150px;
+      height: 50px;
+    }
+
+    /* Header navigation styling */
+    .header_section {
+      background-color: #CEDF4E;
+      /* Keep this background white */
+      padding: 15px 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      position: relative;
+      /* Added */
+      z-index: 2;
+      /* Added */
+    }
+
+    .containt_main {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    /* Sidenav styling */
+    .sidenav {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 3;
+      /* Ensure sidenav is on top */
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+    }
+
+    .sidenav a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .sidenav a:hover {
+      color: #f1f1f1;
+    }
+
+    .sidenav .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+
+    .toggle_icon img {
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+    }
+
+    /* Dropdown styling */
+    .dropdown .btn {
+      background-color: #fff;
+      color: #000;
+      border: 1px solid #ddd;
+      border-radius: 25px;
+      padding: 8px 20px;
+      position: relative;
+      /* Added */
+      z-index: 2;
+      /* Added */
+    }
+
+    .dropdown-menu {
+      border-radius: 10px;
+      position: relative;
+      /* Added */
+      z-index: 3;
+      /* Ensure dropdown menu is on top */
+    }
+
+
+    /* Search bar styling */
+    .main .input-group {
+      width: 300px;
+      position: relative;
+      /* Added */
+      z-index: 2;
+      /* Added */
+    }
+
+    .main .form-control {
+      border-radius: 25px 0 0 25px;
+      border: 1px solid #ddd;
+    }
+
+    .main .btn-secondary {
+      background-color: #f26522;
+      border-color: #f26522;
+      border-radius: 0 25px 25px 0;
+    }
+
+    /* Language and cart menu styling */
+    .header_box {
+      display: flex;
+      align-items: center;
+      position: relative;
+      /* Added */
+      z-index: 2;
+      /* Added */
+    }
+
+    .lang_box .nav-link {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 25px;
+      padding: 8px 15px;
+      color: #000;
+      position: relative;
+      /* Added */
+      z-index: 2;
+      /* Added */
+    }
+
+    .lang_box .dropdown-menu {
+      min-width: 120px;
+      position: relative;
+      /* Added */
+      z-index: 3;
+      /* Ensure language dropdown is on top */
+    }
+
+    .login_menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
+
+    .login_menu ul li {
+      margin-left: 10px;
+    }
+
+    .login_menu ul li a {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 25px;
+      padding: 8px 15px;
+      color: #000;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      position: relative;
+      /* Added */
+      z-index: 2;
+      /* Added */
+    }
+
+    .login_menu ul li a i {
+      margin-right: 5px;
+    }
+
+    /* Banner section styling - Kept as is for the banner specific background */
+    .banner_bg_main {
+      /* Original background gradient/image for banner area */
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/logo.png') repeat center center;
+      background-size: auto;
+      min-height: 500px;
+      position: relative;
+      /* Ensure content within banner_bg_main is above the body background */
+      z-index: 1;
+      /* Original z-index seems fine, adjust if needed */
+    }
+
+    .banner_section {
+      padding: 50px 0;
+      position: relative;
+      /* Added */
+      z-index: 2;
+      /* Added to ensure banner content is above body background */
+    }
+
+    .banner_taital {
+      color: #fff;
+      font-size: 48px;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .banner_taital br+span {
+      font-family: 'Great Vibes', cursive;
+      font-size: 60px;
+    }
+
+    .buynow_bt {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .buynow_bt a {
+      background-color: #000;
+      color: #fff;
+      padding: 10px 30px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      /* Added */
+      z-index: 2;
+      /* Added */
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+      width: 50px;
+      height: 50px;
+      background-color: #000;
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+      position: absolute;
+      /* Ensure they are positioned relative to the parent */
+      z-index: 2;
+      /* Ensure controls are above body background */
+    }
+
+    .carousel-indicators {
+      bottom: -50px;
+      position: relative;
+      /* Added */
+      z-index: 2;
+      /* Added */
+    }
+
+    .carousel-indicators li {
+      background-color: #ddd;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .carousel-indicators .active {
+      background-color: #f26522;
+    }
+
+    /* Product section styling */
+    .fashion_section,
+    .jewellery_section {
+      padding: 50px 0;
+      background-color: transparent;
+      /* Ensure these sections don't hide the background */
+      position: relative;
+      /* Added */
+      z-index: 1;
+      /* Ensure content is above body background */
+    }
+
+    .fashion_taital {
+      font-size: 36px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+      color: #1a1a1a;
+    }
+
+    .box_main {
+      background-color: #fff;
+      /* Keep white background for product boxes */
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 20px;
+      position: relative;
+      /* Added */
+      z-index: 2;
+      /* Ensure boxes are above the section background if any */
+    }
+
+    .shirt_text {
+      font-size: 18px;
+      font-weight: 500;
+      color: #1a1a1a;
+      margin-bottom: 10px;
+    }
+
+    .price_text {
+      font-size: 16px;
+      color: #1a1a1a;
+      margin-bottom: 20px;
+    }
+
+    .price_text span {
+      color: #f26522;
+      font-weight: 700;
+    }
+
+    .tshirt_img,
+    .electronic_img,
+    .jewellery_img {
+      margin-bottom: 20px;
+    }
+
+    .btn_main {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .buy_bt a {
+      background-color: #f26522;
+      color: #fff;
+      padding: 8px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .seemore_bt a {
+      background-color: #000;
+      color: #fff;
+      padding: 8px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    /* Footer styling */
+    .footer_section {
+      background-color: #1a1a1a;
+      color: #fff;
+      padding: 50px 0;
+      text-align: center;
+      position: relative;
+      /* Added */
+      z-index: 1;
+      /* Ensure footer is above body background */
+    }
+
+    .footer_logo img {
+      width: 150px;
+      height: 50px;
+    }
+
+    .input_bt {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    .mail_bt {
+      width: 300px;
+      padding: 10px;
+      border-radius: 25px 0 0 25px;
+      border: none;
+    }
+
+    .subscribe_bt a {
+      background-color: #f26522;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 0 25px 25px 0;
+      text-decoration: none;
+    }
+
+    .footer_menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+
+    .footer_menu ul li {
+      display: inline;
+      margin: 0 15px;
+    }
+
+    .footer_menu ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .location_main {
+      font-size: 16px;
+    }
+
+    .location_main a {
+      color: #f26522;
+      text-decoration: none;
+    }
+
+    /* Copyright Section */
+    .copyright_section {
+      background-color: #000;
+      padding: 20px 0;
+      text-align: center;
+      position: relative;
+      /* Added */
+      z-index: 1;
+      /* Ensure copyright is above body background */
+    }
+
+    .copyright_text {
+      color: #fff;
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .copyright_text a {
+      color: #f26522;
+      text-decoration: none;
+    }
+
+    /* Loader (hidden by default) */
+    .loader_main {
+      display: none;
+    }
+
+    /* Responsive adjustments */
+    @media screen and (max-width: 767px) {
+      .containt_main {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .main .input-group {
+        width: 100%;
+      }
+
+      .box_main {
+        margin-bottom: 30px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="banner_bg_main">
+    <div class="container">
+      <div class="header_section_top">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="custom_menu">
+              <ul>
+                <li><a href="#">Best Sellers</a></li>
+                <li><a href="#">Gift Ideas</a></li>
+                <li><a href="#">New Releases</a></li>
+                <li><a href="#">Today's Deals</a></li>
+                <li><a href="#">Customer Service</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="logo_section">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="logo"><a href="index.html"><img src="logo.jpg" width="1450" height="300"></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header_section">
+      <div class="container">
+        <div class="containt_main">
+          <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+            <a href="index.html">Home</a>
+            <a href="fashion.html">Fashion</a>
+            <a href="electronic.html">Electronic</a>
+            <a href="jewellery.html">Jewellery</a>
+          </div>
+          <span class="toggle_icon" onclick="openNav()"><img src="https://t4.ftcdn.net/jpg/03/13/59/79/360_F_313597923_bsXXA0mIh3QERYwiZGq5M0CAFlgDRpas.jpg"
+              width="250" height="130"></span>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Category</button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+          <div class="main">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search this blog">
+              <div class="input-group-append">
+                <button class="btn btn-secondary" type="button">
+                  <i class="fa fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="header_box">
+            <div class="lang_box">
+              <a href="#" title="Language" class="nav-link" data-toggle="dropdown" aria-expanded="true">
+                <img src="logo.jpg" alt="flag" width="20" height="20" class="mr-2"
+                  title="United Kingdom"> English <i class="fa fa-angle-down ml-2" aria-hidden="true"></i>
+              </a>
+              <div class="dropdown-menu">
+                <a href="#" class="dropdown-item">
+                  <img src="logo.jpg" alt="flag" width="20" height="20" class="mr-2">
+                  French
+                </a>
+              </div>
+            </div>
+            <div class="login_menu">
+              <ul>
+                <li><a href="#">
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    <span class="padding_10">Cart</span></a>
+                </li>
+                <li><a href="#">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <span class="padding_10">User</span></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="banner_section layout_padding">
+      <div class="container">
+        <div id="my_slider" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row">
+                <div class="col-sm-12">
+                  <h1 class="banner_taital">Get Start <br><span>Your Favorite Shopping</span></h1>
+                  <div class="buynow_bt"><a href="#">Buy Now</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-sm-12">
+                  <h1 class="banner_taital">Get Start <br><span>Your Favorite Shopping</span></h1>
+                  <div class="buynow_bt"><a href="#">Buy Now</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-sm-12">
+                  <h1 class="banner_taital">Get Start <br><span>Your Favorite Shopping</span></h1>
+                  <div class="buynow_bt"><a href="#">Buy Now</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#my_slider" role="button" data-slide="prev">
+            <i class="fa fa-angle-left"></i>
+          </a>
+          <a class="carousel-control-next" href="#my_slider" role="button" data-slide="next">
+            <i class="fa fa-angle-right"></i>
+          </a>
+          <ol class="carousel-indicators">
+            <li data-target="#my_slider" data-slide-to="0" class="active"></li>
+            <li data-target="#my_slider" data-slide-to="1"></li>
+            <li data-target="#my_slider" data-slide-to="2"></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fashion_section">
+    <div id="main_slider" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="container">
+            <h1 class="fashion_taital">Man & Woman Fashion</h1>
+            <div class="fashion_section_2">
+              <div class="row">
+                <div class="col-lg-4 col-sm-4">
+                  <div class="box_main">
+                    <h4 class="shirt_text">Man T-shirt</h4>
+                    <p class="price_text">Price <span>$ 30</span></p>
+                    <div class="tshirt_img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWacrSfPXhYRcf8ge19Wwlt8KgNvvVPnK3mxSNgiEa3g&s&ec=72940544" width="200"
+                        height="200"></div>
+                    <div class="btn_main">
+                      <div class="buy_bt"><a href="#">Buy Now</a></div>
+                      <div class="seemore_bt"><a href="#">See More</a></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-sm-4">
+                  <div class="box_main">
+                    <h4 class="shirt_text">Man Shirt</h4>
+                    <p class="price_text">Price <span>$ 30</span></p>
+                    <div class="tshirt_img"><img src="https://m.media-amazon.com/images/I/61jUlO4cPoL._AC_UY1000_.jpg" width="200"
+                        height="200"></div>
+                    <div class="btn_main">
+                      <div class="buy_bt"><a href="#">Buy Now</a></div>
+                      <div class="seemore_bt"><a href="#">See More</a></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-sm-4">
+                  <div class="box_main">
+                    <h4 class="shirt_text">Woman Scarf</h4>
+                    <p class="price_text">Price <span>$ 30</span></p>
+                    <div class="tshirt_img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoZ1EIIfKo6jTMS0LRvamCexEwf1B2uawq8tLmPG4bPQ&s&ec=72940544  " width="200"
+                        height="200"></div>
+                    <div class="btn_main">
+                      <div class="buy_bt"><a href="#">Buy Now</a></div>
+                      <div class="seemore_bt"><a href="#">See More</a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="container">
+            <h1 class="fashion_taital">Man & Woman Fashion</h1>
+            <div class="fashion_section_2">
+              <div class="row">
+                <div class="col-lg-4 col-sm-4">
+                  <div class="box_main">
+                    <h4 class="shirt_text">Man T-shirt</h4>
+                    <p class="price_text">Price <span>$ 30</span></p>
+                    <div class="tshirt_img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5gcpaZAeTx1vyHeF2lL0jmukI-AWmUuPpUeNJCZn60A&s&ec=72940544" width="200"
+                        height="200"></div>
+                    <div class="btn_main">
+                      <div class="buy_bt"><a href="#">Buy Now</a></div>
+                      <div class="seemore_bt"><a href="#">See More</a></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-sm-4">
+                  <div class="box_main">
+                    <h4 class="shirt_text">Man Shirt</h4>
+                    <p class="price_text">Price <span>$ 30</span></p>
+                    <div class="tshirt_img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSValXq07mgZsvcROXb8Hg5CR-Y9uxV8wleqQ9GB-Gteg&s&ec=72940544" width="200"
+                        height="200"></div>
+                    <div class="btn_main">
+                      <div class="buy_bt"><a href="#">Buy Now</a></div>
+                      <div class="seemore_bt"><a href="#">See More</a></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-sm-4">
+                  <div class="box_main">
+                    <h4 class="shirt_text">Woman Scarf</h4>
+                    <p class="price_text">Price <span>$ 30</span></p>
+                    <div class="tshirt_img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx_0lCx-39w3J-Gmf8RDdVZe0FiIm8XzA4SuvxLr6bKQ&s&ec=72940544" width="200"
+                        height="200"></div>
+                    <div class="btn_main">
+                      <div class="buy_bt"><a href="#">Buy Now</a></div>
+                      <div class="seemore_bt"><a href="#">See More</a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
+        <i class="fa fa-angle-left"></i>
+      </a>
+      <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
+        <i class="fa fa-angle-right"></i>
+      </a>
+      <ol class="carousel-indicators">
+        <li data-target="#main_slider" data-slide-to="0" class="active"></li>
+        <li data-target="#main_slider" data-slide-to="1"></li>
+      </ol>
+    </div>
+  </div>
+  <div class="fashion_section">
+    <div id="electronic_main_slider" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="container">
+            <h1 class="fashion_taital">Electronic</h1>
+            <div class="fashion_section_2">
+              <div class="row">
+                <div class="col-lg-4 col-sm-4">
+                  <div class="box_main">
+                    <h4 class="shirt_text">Laptop</h4>
+                    <p class="price_text">Start Price <span>$ 100</span></p>
+                    <div class="electronic_img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxsvDtbPPl_spWOJrngIUkJptgD-AvnTfFAqfuJUMaAaoVrzMPkQ&s=10&ec=72940544" width="200"
+                        height="200"></div>
+                    <div class="btn_main">
+                      <div class="buy_bt"><a href="#">Buy Now</a></div>
+                      <div class="seemore_bt"><a href="#">See More</a></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-sm-4">
+                  <div class="box_main">
+                    <h4 class="shirt_text">Mobile</h4>
+                    <p class="price_text">Start Price <span>$ 100</span></p>
+                    <div class="electronic_img"><img src="https://via.placeholder.com/200x200?text=Mobile" width="200"
+                        height="200"></div>
+                    <div class="btn_main">
+                      <div class="buy_bt"><a href="#">Buy Now</a></div>
+                      <div class="seemore_bt"><a href="#">See More</a></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-sm-4">
+                  <div class="box_main">
+                    <h4 class="shirt_text">Computers</h4>
+                    <p class="price_text">Start Price <span>$ 100</span></p>
+                    <div class="electronic_img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRulqU9Ah2RZCiprlu1nInNmsmsr-m8fX0E2agBbN_oSQ&s&ec=72940544" width="200"
+                        height="200"></div>
+                    <div class="btn_main">
+                      <div class="buy_bt"><a href="#">Buy Now</a></div>
+                      <div class="seemore_bt"><a href="#">See More</a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="container">
+            <h1 class="fashion_taital">Electronic</h1>
+            <div class="fashion_section_2">
+              <div class="row">
+                <div class="col-lg-4 col-sm-4">
+                  <div class="box_main">
+                    <h4 class="shirt_text">Laptop</h4>
+                    <p class="price_text">Start Price <span>$ 100</span></p>
+                    <div class="electronic_img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUOimT1YoBBNTipSNEvSczlnvNdghllf-Hz6z2zVQw0g&s&ec=72940544" width="200"
+                        height="200"></div>
+                    <div class="btn_main">
+                      <div class="buy_bt"><a href="#">Buy Now</a></div>
+                      <div class="seemore_bt"><a href="#">See More</a></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-sm-4">
+                  <div class="box_main">
+                    <h4 class="shirt_text">Mobile</h4>
+                    <p class="price_text">Start Price <span>$ 100</span></p>
+                    <div class="electronic_img"><img src="https://dmarket.pk/wp-content/uploads/2023/10/Oppo-A17-Used-Mobile-For-Sale-In-Pakistan.jpg" width="200"
+                        height="200"></div>
+                    <div class="btn_main">
+                      <div class="buy_bt"><a href="#">Buy Now</a></div>
+                      <div class="seemore_bt"><a href="#">See More</a></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-sm-4">
+                  <div class="box_main">
+                    <h4 class="shirt_text">Computers</h4>
+                    <p class="price_text">Start Price <span>$ 100</span></p>
+                    <div class="electronic_img"><img src="https://laptopmall.pk/storage/media/jh2DLmCNoyXn0ETdGiw6OPL9AfaeVrJWy4X2HodC.jpg" width="200"
+                        height="200"></div>
+                    <div class="btn_main">
+                      <div class="buy_bt"><a href="#">Buy Now</a></div>
+                      <div class="seemore_bt"><a href="#">See More</a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#electronic_main_slider" role="button" data-slide="prev">
+        <i class="fa fa-angle-left"></i>
+      </a>
+      <a class="carousel-control-next" href="#electronic_main_slider" role="button" data-slide="next">
+        <i class="fa fa-angle-right"></i>
+      </a>
+      <ol class="carousel-indicators">
+        <li data-target="#electronic_main_slider" data-slide-to="0" class="active"></li>
+        <li data-target="#electronic_main_slider" data-slide-to="1"></li>
+      </ol>
+    </div>
+  </div>
+  <div class="jewellery_section">
+    <div id="jewellery_main_slider" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="container">
+            <h1 class="fashion_taital">Jewellery Accessories</h1>
+            <div class="fashion_section_2">
+              <div class="row">
+                <div class="col-lg-4 col-sm-4">
+                  <div class="box_main">
+                    <h4 class="shirt_text">Jhumkas</h4>
+                    <p class="price_text">Start Price <span>$ 100</span></p>
+                    <div class="jewellery_img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGVq3mqpys3VDqE4UIgnOTQ7iRO1jS8M8g4ZRoPxQqAw&s&ec=72940544" width="200"
+                        height="200"></div>
+                    <div class="btn_main">
+                      <div class="buy_bt"><a href="#">Buy Now</a></div>
+                      <div class="seemore_bt"><a href="#">See More</a></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-sm-4">
+                  <div class="box_main">
+                    <h4 class="shirt_text">Necklaces</h4>
+                    <p class="price_text">Start Price <span>$ 100</span></p>
+                    <div class="jewellery_img"><img src="https://shoprex.com/images/srproducts/large/wedding-jewelry-set-2021-for-dulhan-ps-330_44282.jpg" width="200"
+                        height="200"></div>
+                    <div class="btn_main">
+                      <div class="buy_bt"><a href="#">Buy Now</a></div>
+                      <div class="seemore_bt"><a href="#">See More</a></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-sm-4">
+                  <div class="box_main">
+                    <h4 class="shirt_text">Bangles</h4>
+                    <p class="price_text">Start Price <span>$ 100</span></p>
+                    <div class="jewellery_img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdljVEhAJqcWt4osj6C9DNVwPmsLxBY2RkJxwOyfSX4Q&s&ec=72940544" width="200"
+                        height="200"></div>
+                    <div class="btn_main">
+                      <div class="buy_bt"><a href="#">Buy Now</a></div>
+                      <div class="seemore_bt"><a href="#">See More</a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="container">
+            <h1 class="fashion_taital">Jewellery Accessories</h1>
+            <div class="fashion_section_2">
+              <div class="row">
+                <div class="col-lg-4 col-sm-4">
+                  <div class="box_main">
+                    <h4 class="shirt_text">Jhumkas</h4>
+                    <p class="price_text">Start Price <span>$ 100</span></p>
+                    <div class="jewellery_img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIAJock6FFt80CkIsl_jYENYAdjJ3Jr0L8Id7I8dfpQw&s&ec=72940544" width="200"
+                        height="200"></div>
+                    <div class="btn_main">
+                      <div class="buy_bt"><a href="#">Buy Now</a></div>
+                      <div class="seemore_bt"><a href="#">See More</a></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-sm-4">
+                  <div class="box_main">
+                    <h4 class="shirt_text">Necklaces</h4>
+                    <p class="price_text">Start Price <span>$ 100</span></p>
+                    <div class="jewellery_img"><img src="https://www.collectionary.store/wp-content/uploads/2022/02/IMG_7908.png" width="200"
+                        height="200"></div>
+                    <div class="btn_main">
+                      <div class="buy_bt"><a href="#">Buy Now</a></div>
+                      <div class="seemore_bt"><a href="#">See More</a></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-sm-4">
+                  <div class="box_main">
+                    <h4 class="shirt_text">Bangles</h4>
+                    <p class="price_text">Start Price <span>$ 100</span></p>
+                    <div class="jewellery_img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWFMIJV7er6N3K9UWp6ulXQpNCGNnR_3D8NK5J8eJEGQ&s&ec=72940544" width="200"
+                        height="200"></div>
+                    <div class="btn_main">
+                      <div class="buy_bt"><a href="#">Buy Now</a></div>
+                      <div class="seemore_bt"><a href="#">See More</a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#jewellery_main_slider" role="button" data-slide="prev">
+        <i class="fa fa-angle-left"></i>
+      </a>
+      <a class="carousel-control-next" href="#jewellery_main_slider" role="button" data-slide="next">
+        <i class="fa fa-angle-right"></i>
+      </a>
+      <ol class="carousel-indicators">
+        <li data-target="#jewellery_main_slider" data-slide-to="0" class="active"></li>
+        <li data-target="#jewellery_main_slider" data-slide-to="1"></li>
+      </ol>
+      <div class="loader_main">
+        <div class="loader"></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer_section layout_padding">
+    <div class="container">
+      <div class="footer_logo"><a href="index.html"><img src="logo.jpg" width="150" height="50"></a></div>
+      <div class="input_bt">
+        <input type="text" class="mail_bt" placeholder="Your Email" name="Your Email">
+        <span class="subscribe_bt" id="basic-addon2"><a href="#">Subscribe</a></span>
+      </div>
+      <div class="footer_menu">
+        <ul>
+          <li><a href="#">Best Sellers</a></li>
+          <li><a href="#">Gift Ideas</a></li>
+          <li><a href="#">New Releases</a></li>
+          <li><a href="#">Today's Deals</a></li>
+          <li><a href="#">Customer Service</a></li>
+        </ul>
+      </div>
+      <div class="location_main">Help Line Number: <a href="#">+1 1800 1200 1200</a></div>
+    </div>
+  </div>
+  <div class="copyright_section">
+    <div class="container">
+      <p class="copyright_text">© 2020 All Rights Reserved. Design by <a href="https://html.design">Free HTML
+          Templates</a></p>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+  <script>
+    // Sidenav open function
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+    }
+    // Sidenav close function
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+    // Hide loader on page load
+    $(window).on('load', function () {
+      $('.loader_main').fadeOut();
+    });
+  </script>
+</body>
+
+</html>

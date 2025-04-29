@@ -1,0 +1,34 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "products"
+    label: "Products"
+    folder: "products"
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Price", name: "price", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Description", name: "description", widget: "text" }
+
+  - name: "general"
+    label: "General Settings"
+    file: "settings/general.json"
+    fields:
+      - { label: "Phone Number", name: "phone", widget: "string" }
+      - { label: "Email", name: "email", widget: "string" }
+      - { label: "Logo", name: "logo", widget: "image" }
+
+  - name: "design"
+    label: "Design Settings"
+    file: "settings/design.json"
+    fields:
+      - { label: "Navbar Color", name: "navbar_color", widget: "color" }
+      - { label: "Hero Background", name: "hero_bg", widget: "image" }
+      - { label: "Product Section Color", name: "product_bg", widget: "color" }
+      

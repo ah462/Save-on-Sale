@@ -19,17 +19,22 @@ collections:
 
   - name: "general"
     label: "General Settings"
-    file: "settings/general.json"
-    fields:
-      - { label: "Logo", name: "logo", widget: "image" }
-      - { label: "Phone", name: "phone", widget: "string" }
-      - { label: "Email", name: "email", widget: "string" }
+    files:
+      - file: "settings/general.json"
+        label: "General Settings"
+        name: "general"
+        fields:
+          - { label: "Logo", name: "logo", widget: "image" }
+          - { label: "Phone", name: "phone", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
 
   - name: "design"
     label: "Design Settings"
-    file: "settings/design.json"
-    fields:
-      - { label: "Hero Section Background", name: "hero_bg", widget: "image" }
-      - { label: "Hero Section Color", name: "hero_color", widget: "color" }
-      - { label: "Products Section Background", name: "products_bg", widget: "image" }
-      - { label: "Products Section Color", name: "products_color", widget: "color" }
+    files:
+      - file: "settings/design.json"
+        label: "Design Settings"
+        name: "design"
+        fields:
+          - { label: "Navbar Color", name: "navbar_color", widget: "color" }
+          - { label: "Hero Background", name: "hero_bg", widget: "image" }
+          - { label: "Product Background", name: "product_bg", widget: "image" }

@@ -8,8 +8,9 @@ public_folder: "/uploads"
 collections:
   - name: "products"
     label: "Products"
-    folder: "products"
+    folder: "settings/products"
     create: true
+    slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Price", name: "price", widget: "string" }
@@ -20,15 +21,15 @@ collections:
     label: "General Settings"
     file: "settings/general.json"
     fields:
-      - { label: "Phone Number", name: "phone", widget: "string" }
-      - { label: "Email", name: "email", widget: "string" }
       - { label: "Logo", name: "logo", widget: "image" }
+      - { label: "Phone", name: "phone", widget: "string" }
+      - { label: "Email", name: "email", widget: "string" }
 
   - name: "design"
     label: "Design Settings"
     file: "settings/design.json"
     fields:
-      - { label: "Navbar Color", name: "navbar_color", widget: "color" }
-      - { label: "Hero Background", name: "hero_bg", widget: "image" }
-      - { label: "Product Section Color", name: "product_bg", widget: "color" }
-      
+      - { label: "Hero Section Background", name: "hero_bg", widget: "image" }
+      - { label: "Hero Section Color", name: "hero_color", widget: "color" }
+      - { label: "Products Section Background", name: "products_bg", widget: "image" }
+      - { label: "Products Section Color", name: "products_color", widget: "color" }
